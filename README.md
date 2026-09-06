@@ -4,6 +4,8 @@
 * Cruz Escobar Aarón
 * Góngora Barroso Alfonso
 * Quirino Roman Emmanuel
+¿Por qué tener una colisión no significa que la tabla hash esté implementada incorrectamente?
+
 1. lenguaje utilizado:
    Java
 2. Instrucciones para ejecutar el programa:
