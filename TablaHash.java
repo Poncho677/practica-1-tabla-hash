@@ -3,11 +3,12 @@ import java.util.ArrayList;
 public class TablaHash{
 
     private ArrayList<Nodo>[] tabla;
-
+    private int m = 7;
+    private int n = 0;
+    
     private class Nodo{
 
 	private int llave;
-
 	private String valor;
 
 	private Nodo(int llave, String valor){
@@ -30,11 +31,11 @@ public class TablaHash{
     }
 
     public TablaHash(){
-        tabla = new ArrayList[7];
+        tabla = new ArrayList[m];
     }
 
     private int hash(int l){
-	return l % 7;
+	return Math.abs(l) % m;
     }
 
     public void insertar(int key, String valor){
@@ -49,6 +50,7 @@ public class TablaHash{
 	    }
 	}
 	tabla[indice].add(new Nodo(key, valor));
+	n++;
     }
 	    
     public void buscar(int llave){
@@ -70,29 +72,31 @@ public class TablaHash{
 	}
     }
 
-
     public void eliminar(int llave){
 	int ind = hash(llave);
 	Nodo b = null;
 	if(tabla[ind] == null) {
 	    return;
 	} else {
-	    for(Nodo n: tabla[ind]){
-		if(n.getLlave() == llave){
-		    tabla[ind].remove(n);
-		    if(tabla[ind].isEmpty())
-			tabla[ind] = null;
+	    for (int i = 0; i < tabla[ind].size(); i++) {
+		if (tabla[ind].get(i).getLlave() == llave) {
+		    tabla[ind].remove(i);
+		    n--;
+		    if(tabla[ind].isEmpty()) tabla[ind] = null;
 		    break;
 		}
 	    }
 	}
     }
 
+    public double factorCarga() {
+	return (double) n / m;
+    }
 
     @Override
     public String toString(){
 	String s = "";
-	for(int i = 0; i < 7; i++){
+	for(int i = 0; i < m; i++){
 	    s += i + " -> ";
 	    if(tabla[i] == null)
 		s += "\n";
