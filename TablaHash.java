@@ -30,6 +30,7 @@ public class TablaHash{
 	}
     }
 
+    @SuppressWarnings("unchecked")
     public TablaHash(){
         tabla = new ArrayList[m];
     }
