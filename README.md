@@ -7,6 +7,8 @@
 
 ## ¿Por qué tener una colisión no significa que la tabla hash esté implementada incorrectamente?
 
+Una colisión ocurre cuando dos llaves distintas generan el mismo índice hash. Como el conjunto de llaves es más grande que el número de cubetas (m = 7), las colisiones son matemáticamente inevitables por el principio del palomar. Por ello, una tabla hash es correcta si maneja las colisiones adecuadamente garantizando que todos los elementos sigan siendo accesibles al insertar o eliminar.
+
 ## 1. Lenguaje utilizado
 
 Java.
