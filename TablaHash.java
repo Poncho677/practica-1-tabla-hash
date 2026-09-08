@@ -54,22 +54,26 @@ public class TablaHash{
 	n++;
     }
 	    
-    public void buscar(int llave){
+    public String buscar(int llave){
 	Nodo b = null;
 	int busca = hash(llave);
-	if(tabla[busca] == null)
+	if(tabla[busca] == null) {
 	    System.out.println("NOT_FOUND");
-	else{
+	    return null;
+	} else{
 	    for(Nodo n: tabla[busca]){
 		if(n.getLlave() == llave){
 		    b = n;
 		    break;
 		}
 	    }
-	    if(b == null)
+	    if(b == null) {
 		System.out.println("NOT_FOUND");
-	    else
+		return null;
+	    } else {
 		System.out.println(busca + " -> " + b.getValor());
+		return b.getValor();
+	    }
 	}
     }
 

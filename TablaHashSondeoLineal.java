@@ -5,15 +5,16 @@ public class TablaHashSondeoLineal{
     private ArrayList<Nodo>[] tabla;
     private int m = 7;
     private int n = 0;
-    private static final String DELETED = "DELETED";
     
     private class Nodo{
 	private int llave;
 	private String valor;
+	private boolean borrado;
 
 	private Nodo(int llave, String valor){
 	    this.llave = llave;
 	    this.valor = valor;
+	    this.borrado = false;
 	}
 
 	public int getLlave(){
@@ -25,7 +26,7 @@ public class TablaHashSondeoLineal{
 	}
 
 	public boolean isDeleted(){
-	    return valor.equals(DELETED);
+	    return borrado;
 	}
 
 	@Override
@@ -81,13 +82,13 @@ public class TablaHashSondeoLineal{
         System.out.println("ERROR: Tabla llena");
     }
 	    
-    public void buscar(int llave){
+    public String buscar(int llave){
 	int busca = hash(llave);
 	for (int i = 0; i < m; i++) {
             int posicion = (busca + i) % m;
 	    if (tabla[posicion] == null) {
                 System.out.println("NOT_FOUND");
-                return;
+                return null;
             }
 	    Nodo nodo = tabla[posicion].get(0);
 	    if (nodo.isDeleted()) {
@@ -95,10 +96,11 @@ public class TablaHashSondeoLineal{
             }
 	    if (nodo.getLlave() == llave) {
                 System.out.println(posicion + " -> " + nodo.getValor());
-                return;
+                return nodo.getValor();
             }
         }
 	System.out.println("NOT_FOUND");
+	return null;
     }
 
     public int contiene(int llave){
@@ -123,8 +125,7 @@ public class TablaHashSondeoLineal{
     public void eliminar(int llave){
         int posicion = contiene(llave);
         if (posicion != -1) {
-            tabla[posicion] = new ArrayList<>();
-            tabla[posicion].add(new Nodo(-1, DELETED));
+	    tabla[posicion].get(0).borrado = true;
             n--;
         }
     }

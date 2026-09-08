@@ -25,6 +25,7 @@ public class Pruebas {
         t.buscar(18);
         t.buscar(10);
         t.buscar(23);
+        System.out.println("Factor de carga: " + t.factorCarga());
 
         seccion("Prueba 3");
         t.insertar(24, "Maria");
@@ -32,12 +33,14 @@ public class Pruebas {
         t.buscar(10);
         t.buscar(24);
         t.buscar(31);
+        System.out.println("Factor de carga: " + t.factorCarga());
 
         seccion("Prueba 4");
         t.eliminar(24);
         t.buscar(24);
         t.buscar(10);
         t.buscar(31);
+        System.out.println("Factor de carga: " + t.factorCarga());
 
         seccion("Prueba 5");
         t.eliminar(999);
@@ -46,9 +49,7 @@ public class Pruebas {
         t.insertar(18, "Ana");
         t.insertar(18, "Ana Maria");
         t.buscar(18);
-
-	seccion("Factor de carga");
-	System.out.println(t.factorCarga());
+        System.out.println("Factor de carga: " + t.factorCarga());
 
         seccion("Ejecucion final");
         TablaHash t2 = new TablaHash();
@@ -78,6 +79,7 @@ public class Pruebas {
         t.buscar(18);
         t.buscar(10);
         t.buscar(23);
+        System.out.println("Factor de carga: " + t.factorCarga());
 
         seccion("Prueba 3");
         t.insertar(24, "Maria");
@@ -85,12 +87,14 @@ public class Pruebas {
         t.buscar(10);
         t.buscar(24);
         t.buscar(31);
+        System.out.println("Factor de carga: " + t.factorCarga());
 
         seccion("Prueba 4");
         t.eliminar(24);
         t.buscar(24);
         t.buscar(10);
         t.buscar(31);
+        System.out.println("Factor de carga: " + t.factorCarga());
 
         seccion("Prueba 5");
         t.eliminar(999);
@@ -99,9 +103,7 @@ public class Pruebas {
         t.insertar(18, "Ana");
         t.insertar(18, "Ana Maria");
         t.buscar(18);
-
-	seccion("Factor de carga");
-        System.out.println(t.factorCarga());
+        System.out.println("Factor de carga: " + t.factorCarga());
 
         seccion("Ejecucion final");
         TablaHashSondeoLineal t2 = new TablaHashSondeoLineal();
