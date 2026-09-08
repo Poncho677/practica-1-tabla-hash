@@ -36,7 +36,8 @@ tabla.eliminar(1);
 ```java
 TablaHashSondeoLineal tabla = new TablaHashSondeoLineal();
 tabla.insertar(2, "dos");
-tabla.buscar(2); 
+tabla.buscar(2);
+tabla.eliminar(2); 
 ```
 
 ## 3. Explicación de cómo ejecutar los casos de prueba
